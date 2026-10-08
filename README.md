@@ -1,23 +1,55 @@
 # 🎓 LearnMate AI
 
 > **"Your Study Material. Your Learning Pattern. Your Personal AI Tutor."**  
-> *Built for Multimodal AI Hackathon 2026 — Track D: Personalized Tutoring & Adaptive Learning*
+> *Production-Ready Submission for Multimodal AI Hackathon 2026 — Track D: Personalized Tutoring & Adaptive Learning*
 
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-purple.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
 [![Track](https://img.shields.io/badge/Track-D%20Personalized%20Tutoring-emerald.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 📌 Problem Statement
 
-Traditional AI study tools suffer from two major flaws:
-1. **Generic Chatbot Wrappers:** They act as simple Q&A search engines over PDFs, failing to teach or track learning over time.
-2. **Disconnected Resources:** Textbooks, lecture slides, and lecture video recordings exist in silos, forcing students to manually connect the dots.
+Traditional AI study applications suffer from critical limitations:
+1. **Generic "Chat with PDF" Wrappers:** They function merely as passive Q&A retrieval search bars over single documents, completely lacking adaptive learning, cognitive error detection, or longitudinal mastery tracking.
+2. **Fragmented Multimodal Resources:** Students study across disparate media—thick PDF textbooks, slide decks (PPTX), and lengthy lecture video recordings—with no unified system connecting textbook proofs to professor lecture timestamps.
 
-**LearnMate AI** unifies lecture videos, textbooks, slides, and notes into a single source-grounded knowledge base, driving **adaptive assessments, cognitive misconception detection, and personalized tutoring**.
+**LearnMate AI** solves this by unifying textbooks, lecture slides, video recordings, and review notes into **ONE source-cited, searchable knowledge base** that drives **adaptive assessments, hierarchical misconception detection, Learning DNA profiling, and personalized tutoring**.
+
+---
+
+## 💡 Solution Architecture
+
+```
+STUDENT STUDY MATERIALS (PDF, PPTX, MP4, NOTES)
+       │
+       ▼
+CONTENT PARSING & MULTIMODAL INGEST
+ (OCR + Whisper Speech-to-Text Timestamps)
+       │
+       ▼
+SEMANTIC CHUNKING + VECTOR RETRIEVAL (RAG)
+       │
+       ▼
+UNIFIED KNOWLEDGE BASE & PROFESSOR EMPHASIS HEATMAP
+       │
+       ├──► SOURCE-CITED AI TUTOR (6 Pedagogical Modes)
+       │
+       ├──► ADAPTIVE QUESTION ENGINE (Speed + Accuracy + Confidence)
+       │       │
+       │       ▼
+       ├──► MISCONCEPTION MAP (Hierarchical Diagnostic Tree)
+       │       │
+       │       ▼
+       ├──► AI TEACH-BACK EVALUATOR (Student Explains to AI)
+       │       │
+       │       ▼
+       └──► DYNAMIC LEARNING DNA & SPACED REVISION QUEUE
+```
 
 ---
 
@@ -36,15 +68,15 @@ Instead of only reporting a single percentage score (e.g. `62%`), LearnMate AI c
 Rather than simply marking an answer wrong, the system isolates the underlying cognitive flaw within a hierarchical taxonomy:
 ```text
 Database Management Systems
- ├── SQL Basics              ✓ Strong
- ├── Joins                   ⚠ Needs Practice
- │     ├── INNER JOIN        ✓
+ ├── SQL Basics              ✓ Strong (94%)
+ ├── Joins                   ⚠ Needs Practice (62%)
+ │     ├── INNER JOIN        ✓ Mastered
  │     ├── LEFT JOIN         ✗ (Null-filter trap in WHERE clause)
  │     └── RIGHT JOIN        ✗
- └── Normalization           ⚠ Weak
-       ├── 1NF               ✓
-       ├── 2NF               ✗ (Confuses partial with transitive dependency)
-       └── 3NF               ✗
+ └── Normalization           ⚠ Weak (48%)
+       ├── 1NF               ✓ Mastered
+       ├── 2NF               ✗ Critical Misconception (Confuses partial with transitive)
+       └── 3NF               ✗ Weak (Overlooking prime RHS exemption)
 ```
 
 ### 🎯 Feature C — Confidence vs. Correctness Matrix
@@ -64,7 +96,7 @@ Dynamic difficulty engine:
 
 ### 🎙️ Feature E — AI Teach-Back Mode (Seymour Papert Pedagogy)
 The AI turns the table and challenges the student: *"Explain Second Normal Form in your own words."*
-- **Speech-to-Text Support:** Students can speak or type their explanation.
+- **Speech-to-Text Support:** Students can speak or type their explanation using Web Speech API.
 - **Semantic Evaluation:** Grades conceptual accuracy, completeness, and highlights missing nuances (e.g., *"Forgot to specify that partial dependency requires a composite key"*).
 
 ### 🔍 Feature F — Multimodal Tri-Source Fusion
@@ -88,7 +120,7 @@ Configurable timed mock exam with countdown timer, topic filters, and comprehens
 
 ### 💡 Feature J — "Why Am I Wrong?" Breakdown
 Deep diagnostic breakdown comparing:
-- *Your Answer*
+- *Your Selected Answer*
 - *Relational Ground Truth*
 - *Mental Model Trap*
 - *Source Citation & Targeted Remediation*
@@ -97,20 +129,96 @@ Deep diagnostic breakdown comparing:
 
 ## 💻 Tech Stack
 
-- **Frontend:** React 19, TypeScript, Tailwind CSS
-- **Icons & UI:** Lucide React, Canvas Confetti
-- **Build Tool:** Vite 8 (Hot Module Replacement, ultra-fast builds)
-- **Speech API:** Web Speech API (HTML5 Audio Speech Recognition)
-- **Architecture:** Client-side state & RAG reasoning simulation with real source indexing
+- **Frontend Framework:** React 19, TypeScript
+- **Styling & Design System:** Tailwind CSS 3.4
+- **Icons & Assets:** Lucide React, SVG Icons
+- **Animation & FX:** Canvas Confetti
+- **Build Tool:** Vite 8 (Lightning fast Hot Module Replacement)
+- **Speech Synthesis / Recognition:** Web Speech API (HTML5 Audio Recognition)
+- **State Management:** React Context API with persistent learning telemetry
 
 ---
 
-## ⚡ Quick Start
+## 📂 Project Structure
+
+```text
+learnmate-ai/
+├── public/
+│   ├── favicon.svg             # Graduation cap SVG icon
+│   └── icons.svg
+├── src/
+│   ├── assets/                 # Static imagery and logos
+│   ├── components/             # Reusable UI & specialized dialogs
+│   │   ├── Navbar.tsx          # Navigation, streak badge, judge tour
+│   │   ├── SourceModal.tsx     # Tri-source multimodal viewer (Book/Slide/Video)
+│   │   ├── TeachBackModal.tsx  # Feature E interactive speech-to-text dialogue
+│   │   └── WhyAmIWrongModal.tsx# Feature J deep misconception feedback
+│   ├── context/
+│   │   └── LearningContext.tsx # Central adaptive engine state & DNA calculator
+│   ├── data/
+│   │   └── mockData.ts         # Realistic DBMS textbooks, slides, video timestamps
+│   ├── pages/                  # 10 core views
+│   │   ├── LandingPage.tsx     # Page 1: Hero & adaptive workflow
+│   │   ├── DashboardPage.tsx   # Page 2: Student metrics & daily goals
+│   │   ├── MaterialLibraryPage.tsx # Page 3: Multimodal ingest & video player
+│   │   ├── KnowledgeBasePage.tsx   # Page 4: Hierarchical concept tree
+│   │   ├── AITutorPage.tsx     # Page 5: Split-screen chat & learning context
+│   │   ├── AdaptiveAssessmentPage.tsx # Page 6: Dynamic test & confidence selector
+│   │   ├── MisconceptionMapPage.tsx   # Page 7: Hierarchical diagnostic map
+│   │   ├── LearningDNAPage.tsx # Page 8: 5D cognitive analytics & 2x2 matrix
+│   │   ├── RevisionCenterPage.tsx  # Page 9: Spaced repetition queue & flashcards
+│   │   └── ProgressReportPage.tsx  # Page 10: Official printable audit card
+│   ├── types/
+│   │   └── index.ts            # Complete TypeScript domain models
+│   ├── App.tsx                 # Root application wrapper & router
+│   ├── index.css               # Tailwind directives & custom aesthetics
+│   └── main.tsx                # React DOM entry point
+├── .env.example                # Safe environment configuration template
+├── .gitignore                  # Strict secret and build artifact exclusions
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
+```
+
+---
+
+## ⚙️ Prerequisites & Dependencies
+
+Before running this project, ensure you have:
+- **Node.js:** v18.0.0 or later (Tested with Node v24)
+- **npm:** v9.0.0 or later (or pnpm / yarn)
+- A modern web browser (Google Chrome or Microsoft Edge recommended for full Web Speech API microphone support).
+
+---
+
+## 🔑 Environment Variables & Security Guarantee
+
+This project is completely self-contained and pre-seeded with realistic course materials for immediate demonstration without requiring external API keys.
+
+If connecting to an external live LLM service (e.g. Google Gemini API), configure `.env`:
+
+1. Copy the template:
+   ```bash
+   cp .env.example .env
+   ```
+2. Populate the optional variables:
+   ```env
+   PORT=3000
+   VITE_GEMINI_API_KEY="your_api_key_here"
+   VITE_ENABLE_MOCK_RAG="true"
+   ```
+> [!IMPORTANT]
+> **Zero-Secrets Policy:** `.env`, `.env.*`, and any secret keys are explicitly blacklisted in `.gitignore`. No private API keys or credentials are committed to version control.
+
+---
+
+## ⚡ How to Run Locally
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/learnmate-ai.git
-cd learnmate-ai
+git clone https://github.com/RamRaghuvirRoy/multimodal-ai-hackathon-2026.git
+cd multimodal-ai-hackathon-2026
 ```
 
 ### 2. Install dependencies
@@ -118,33 +226,33 @@ cd learnmate-ai
 npm install
 ```
 
-### 3. Run development server
+### 3. Start development server
 ```bash
-npm run dev
+npm run dev -- --port 3000 --host
 ```
-Open [http://localhost:3000](http://localhost:3000) (or `5173`) in your browser.
+Open your browser at **http://localhost:3000**.
 
-### 4. Build for production
+### 4. Build for production & preview
 ```bash
 npm run build
-npm run preview
+npm run preview -- --port 3000 --host
 ```
 
 ---
 
 ## 🧭 5-Minute Hackathon Demo Script for Judges
 
-Use the **"Judge Tour: [1] [2] [3] [4] [5] [6] [7]"** bar at the top of the app:
+Use the **"Judge Tour: [1] [2] [3] [4] [5] [6] [7]"** bar at the top of the header:
 
-1. **Step 1 (Materials):** Inspect multimodal ingest for Textbook, Slides, and Video with synced timestamp player.
-2. **Step 2 (Knowledge Base):** Explore the DBMS concept hierarchy and the **High Professor Emphasis** heatmap on 2NF.
-3. **Step 3 (AI Tutor):** Ask about 2NF; inspect tri-source badges citing book, slide, and video.
-4. **Step 4 (Adaptive Quiz):** Submit an answer with Confidence rating ($1\text{--}5$); observe live difficulty adaptation.
-5. **Step 5 (Misconception Map):** Inspect the red node on 2NF and examine *"Why Am I Wrong?"*.
+1. **Step 1 (Materials Tab):** Inspect multimodal ingest for Textbook, Slides, and Video with synced timestamp player (`12:42–13:18`).
+2. **Step 2 (Knowledge Base Tab):** Explore the DBMS concept hierarchy and the **High Professor Emphasis** heatmap on 2NF.
+3. **Step 3 (AI Tutor Tab):** Ask about 2NF; inspect tri-source badges citing book, slide, and video.
+4. **Step 4 (Adaptive Quiz Tab):** Submit an answer with Confidence rating ($1\text{--}5$); observe live difficulty adaptation.
+5. **Step 5 (Misconception Map Tab):** Inspect the red node on 2NF and examine *"Why Am I Wrong?"*.
 6. **Step 6 (Teach-Back Mode):** Speak or type an explanation; observe the AI grading rubric and celebratory confetti.
 7. **Step 7 (Learning DNA & Report Card):** View the 5-dimension spectrum, quadrant matrix, and export the official progress audit.
 
 ---
 
 ## 📄 License
-MIT License. Built for Multimodal AI Hackathon 2026 Track D.
+MIT License. Built with ❤️ for Multimodal AI Hackathon 2026 Track D.
